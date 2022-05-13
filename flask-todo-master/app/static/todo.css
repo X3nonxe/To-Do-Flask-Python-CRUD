@@ -1,0 +1,7 @@
+.btn-add{
+	background-image: linear-gradient(to right, #00bcd4, #00bcd4);
+	transition: 0.5s;
+}
+.btn-add:hover{
+	transform: scale(1.1);
+}

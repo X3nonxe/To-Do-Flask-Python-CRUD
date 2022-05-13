@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+<div class="container">
+  <div class="jumbotron" style="background-image: url('../static/img/Desktop\ -\ 2.png'); width: 100%;">
+    <h1 class="display-4 text-center" style="font-family: Aclonica; color: white; font-weight: bold; margin-bottom: 20px; margin-left: 24px;">To-Do-List</h1>
+    <form action="" method="POST">
+      {% if edit %}
+        <input type="text" name='todo' class='form-control text-center mb-3' , style="width: 380px; margin-left: 350px;" ,autocomplete=off , value='{{ editTodo.mytodolist }}'>
+        {{ form.update(class='btn btn-success text-center',style="margin-left: 480px;") }}
+      {% else %}        
+        <input type="text" name='todo' class='form-control text-center mb-3' , style="width: 380px; margin-left: 350px;", autocomplete=off , placeholder="Input your todo ">
+        {{ form.submit(class='btn btn-add text-center',style="margin-left: 507px;") }}
+      {% endif %}
+    </form>
+
+
+  </div>
+  <table class="table table-hover text-center" style="background-color: #dce4f1; margin-top: -40px;">
+    <thead class="btn-success">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">To-do</th>
+        <th scope="col">Tanggal</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for baris in data %}
+      <tr class="tex">
+        <td>{{loop.index}}</td>
+        <td>{{baris.mytodolist}}</td>
+        <td>{{baris.date.strftime("%d-%B-%Y - %X")}}</td>
+        <td class="btn btn-primary p-1 pr-3 pl-3 mt-2 ml-3 mr-2"><a class="text-white" style="text-decoration: none;" href="/edit/{{baris.id}}">Edit</a></td>
+        <td class="btn btn-danger p-1 mt-2">
+          <a href="" class="text-white" style="text-decoration: none;" data-toggle="modal" data-target="#exampleModal{{baris.id}}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+<br><br><br><br><br>
+
+<!-- Modal -->
+{% for data in data %}
+<div class="modal fade" id="exampleModal{{data.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete ToDo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apakah anda akan menghapus ToDo ini ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="/delete/{{data.id}}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock content %}

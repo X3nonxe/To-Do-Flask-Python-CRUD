@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+body{
+	background-image: url("../static/img/bg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'Poppins', sans-serif;
+}
+button{
+	transition: all 4ms ease;
+}
+.btn-login{
+	color: white;
+}
+.btn-login:hover{
+	color: #f5f5f5;
+}
+.btn-reg{
+	border:2px solid white;
+	color: white;
+	background: transparent;
+	transition: 0.5s;
+}
+.btn-reg:hover{
+	color: black;
+	background: white;
+	transform: scale(1.1);
+}
+.btn-start{
+	color: white;
+	animation: mymove 5s infinite;
+}
+@keyframes mymove{
+	from{
+		background-image: linear-gradient(to right, #DE2D66, #FF5F6D);
+		transform: translate(0,0);
+		transition: all 4ms ease;
+	}
+	to{
+		background-image: linear-gradient(to right, #FF5F6D, #DE2D66);
+		transform: translate(0,10px);
+		transition: all 4ms ease;
+	}
+}
+form .btn-daftar{
+	background-image: linear-gradient(to right, #DE2D66, #FF5F6D);
+	margin-top: 30px;
+	width: 100%;
+	border-radius: 16px;
+	color: whitesmoke;
+	font-weight: 500;
+	transition: 0.5s;
+}
+form .btn-daftar:hover{
+	background-image: linear-gradient(to right, #FF5F6D, #DE2D66);
+	color: white;
+	transform: scale(1.1);
+}
+form .btn-regs{
+	background-image: linear-gradient(to right, #DE2D66, #FF5F6D);
+	width: 100%;
+	margin-top: 2rem;
+	border-radius: 16px;
+	cursor: pointer;
+	color: whitesmoke;
+	font-weight: 500;
+	transition: .5s;
+}
+form .btn-regs:hover{
+	background-image: linear-gradient(to right, #FF5F6D, #DE2D66);
+	color: white;
+	transform: scale(1.1);
+}
+form p{
+	color: white;
+	font-size: 1rem;
+	margin-top: 1rem;
+	font-weight: lighter;
+}
+.heading{
+	color: white
+}
+span{
+	color: #BC248C;
+}
+.jumbotron h1{
+	color: white;
+	font-size: 100px;
+	font-weight: 500;
+}
+.jumbotron p{
+	color: white;
+}
